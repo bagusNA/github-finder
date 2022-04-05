@@ -1,13 +1,13 @@
 import React from "react";
-import { IoSunnyOutline, IoLocation, IoLink, IoMail, IoBusiness } from 'react-icons/io5';
-import defaultProfile from './img/profile.jpg';
+import { IoSunnyOutline, IoLocation, IoLink, IoMail, IoBusiness, IoSearch } from 'react-icons/io5';
+import defaultProfile from './assets/img/profile.jpg';
 
 function App() {
   return (
-    <main className="min-h-screen bg-dark text-light font-mono p-6">
+    <main className="min-h-screen flex flex-col gap-y-4 text-sm bg-dark text-light font-mono p-6">
       {/* Header */}
-      <div className="flex justify-between items-center pb-6">
-        <h1 className="text-xl font-bold">Github Finder</h1>
+      <div className="flex justify-between items-center pb-2">
+        <h1 className="text-xl font-bold">GitHub-finder</h1>
         <div className="flex items-center gap-x-2">
           <p className="tracking-widest text-sm">LIGHT</p>
           <IoSunnyOutline className="text-2xl"/>
@@ -15,8 +15,21 @@ function App() {
       </div>
 
       {/* Search bar */}
-      <div>
-        
+      <div className="relative flex justify-between px-2 py-2 text-sm bg-card-dark rounded-2xl shadow-2xl">
+        <label htmlFor="searchInput" className="absolute inset-y-0 left-0 flex items-center pl-3">
+          <IoSearch className="text-blue-500 text-2xl"/>
+        </label>
+        <input
+          type="text" 
+          placeholder="Search GitHub username" 
+          id="searchInput"
+          className="pl-9 bg-transparent appearance-none outline-none truncate"
+        />
+        <button 
+          className="bg-blue-600 px-4 py-3 font-bold rounded-lg transition shadow-xl hover:bg-blue-500"
+        >
+          Search
+        </button>
       </div>
 
       {/* Main card */}
@@ -26,8 +39,8 @@ function App() {
           <img src={defaultProfile} alt="Default profile" className="rounded-full" width={100} />
           <div className="flex flex-col justify-center gap-y-1">
             <h2>Bagus Nur A.</h2>
-            <p className="text-sm text-blue-400">@bagusNA</p>
-            <p className="text-sm">Joined 7 July, 2019</p>
+            <p className="text-blue-400">@bagusNA</p>
+            <p className="">Joined 7 July, 2019</p>
           </div>
         </div>
 
@@ -35,7 +48,7 @@ function App() {
         <p className="leading-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit delectus voluptatibus error quidem enim! Officia atque vero repellat nulla recusandae rem! Modi mollitia minus placeat quod minima fugit itaque voluptatem!</p>
 
         {/* Profile stats */}
-        <div className="grid grid-cols-3 justify-between py-4 bg-dark rounded-xl text-sm">
+        <div className="grid grid-cols-3 justify-between py-4 bg-dark rounded-xl">
           <div className="flex flex-col justify-between gap-y-2 text-center">
             <p>Repos</p>
             <p className="font-bold text-lg">8</p>
@@ -51,7 +64,7 @@ function App() {
         </div>
 
         {/* Fields */}
-        <div className="flex flex-col gap-y-2 text-sm">
+        <div className="flex flex-col gap-y-2">
           <div className="flex items-center gap-x-3">
             <IoLocation className="text-3xl" />
             <p>East Borneo, Indonesia</p>
