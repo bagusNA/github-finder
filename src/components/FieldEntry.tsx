@@ -12,8 +12,8 @@ export const FieldEntry:React.FC<EntryProps> = props => {
       <span className="text-3xl">{props.icon}</span>
 
       { props.href
-        ? <a href={props.href}>{props.value}</a>
-        : <p>{props.value}</p>
+        ? <a href={props.href} className="truncate">{props.value}</a>
+        : <p className="truncate">{props.value}</p>
       }
     </div>
   )
