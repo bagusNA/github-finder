@@ -27,7 +27,7 @@ function App() {
         <div className="flex gap-x-6">
           <img src={defaultProfile} alt="Default profile" className="rounded-full" width={100} />
           <div className="flex flex-col justify-center gap-y-1">
-            <h2>Bagus Nur A.</h2>
+            <h2 className="font-bold text-xl">Bagus Nur A.</h2>
             <p className="text-blue-400">@bagusNA</p>
             <p className="">Joined 7 July, 2019</p>
           </div>
@@ -47,7 +47,7 @@ function App() {
         <div className="flex flex-col gap-y-2">
           <FieldEntry icon={<IoLocation />} value='East Borneo, Indonesia' />
           <FieldEntry icon={<IoLink />} value='https://github.com/bagusNA' href="https://github.com/bagusNA"/>
-          <FieldEntry icon={<IoMail />} value='Kalimantan' href="mailto:bagusnur@protonmail.com"/>
+          <FieldEntry icon={<IoMail />} value='bagusnur@protonmail.com' href="mailto:bagusnur@protonmail.com"/>
           <FieldEntry icon={<IoBusiness />} value='Intern at Jupiter IT Solution' />
         </div>
 
