@@ -2,6 +2,7 @@ import React from "react";
 import { IoSunnyOutline, IoLocation, IoLink, IoMail, IoBusiness } from 'react-icons/io5';
 import SearchBar from './components/SearchBar';
 import defaultProfile from './assets/img/profile.jpg';
+import { FieldEntry } from "./components/FieldEntry";
 
 function App() {
   return (
@@ -51,22 +52,10 @@ function App() {
 
         {/* Fields */}
         <div className="flex flex-col gap-y-2">
-          <div className="flex items-center gap-x-3">
-            <IoLocation className="text-3xl" />
-            <p>East Borneo, Indonesia</p>
-          </div>
-          <div className="flex items-center gap-x-3">
-            <IoLink className="text-3xl" />
-            <a href="https://github.com/bagusNA">https://github.com/bagusNA</a>
-          </div>
-          <div className="flex items-center gap-x-3">
-            <IoMail className="text-3xl" />
-            <a href="mailto:bagusnur@protonmail.com">bagusnur@protonmail.com</a>
-          </div>
-          <div className="flex items-center gap-x-3">
-            <IoBusiness className="text-3xl" />
-            <p>Intern at Jupiter IT Solution</p>
-          </div>
+          <FieldEntry icon={<IoLocation />} value='East Borneo, Indonesia' />
+          <FieldEntry icon={<IoLink />} value='https://github.com/bagusNA' href="https://github.com/bagusNA"/>
+          <FieldEntry icon={<IoMail />} value='Kalimantan' href="mailto:bagusnur@protonmail.com"/>
+          <FieldEntry icon={<IoBusiness />} value='Intern at Jupiter IT Solution' />
         </div>
 
       </div>
