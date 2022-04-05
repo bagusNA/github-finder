@@ -1,5 +1,6 @@
 import React from "react";
-import { IoSunnyOutline, IoLocation, IoLink, IoMail, IoBusiness, IoSearch } from 'react-icons/io5';
+import { IoSunnyOutline, IoLocation, IoLink, IoMail, IoBusiness } from 'react-icons/io5';
+import SearchBar from './components/SearchBar';
 import defaultProfile from './assets/img/profile.jpg';
 
 function App() {
@@ -15,22 +16,7 @@ function App() {
       </div>
 
       {/* Search bar */}
-      <div className="relative flex justify-between px-2 py-2 text-sm bg-card-dark rounded-2xl shadow-2xl">
-        <label htmlFor="searchInput" className="absolute inset-y-0 left-0 flex items-center pl-3">
-          <IoSearch className="text-blue-500 text-2xl"/>
-        </label>
-        <input
-          type="text" 
-          placeholder="Search GitHub username" 
-          id="searchInput"
-          className="pl-9 bg-transparent appearance-none outline-none truncate"
-        />
-        <button 
-          className="bg-blue-600 px-4 py-3 font-bold rounded-lg transition shadow-xl hover:bg-blue-500"
-        >
-          Search
-        </button>
-      </div>
+      <SearchBar />
 
       {/* Main card */}
       <div className="flex flex-col gap-y-4 bg-card-dark p-5 rounded-2xl shadow-2xl">
