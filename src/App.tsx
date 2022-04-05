@@ -1,8 +1,10 @@
 import React from "react";
 import { IoSunnyOutline, IoLocation, IoLink, IoMail, IoBusiness } from 'react-icons/io5';
+
 import SearchBar from './components/SearchBar';
-import defaultProfile from './assets/img/profile.jpg';
+import { StatEntry } from './components/StatEntry';
 import { FieldEntry } from "./components/FieldEntry";
+import defaultProfile from './assets/img/profile.jpg';
 
 function App() {
   return (
@@ -36,18 +38,9 @@ function App() {
 
         {/* Profile stats */}
         <div className="grid grid-cols-3 justify-between py-4 bg-dark rounded-xl">
-          <div className="flex flex-col justify-between gap-y-2 text-center">
-            <p>Repos</p>
-            <p className="font-bold text-lg">8</p>
-          </div>
-          <div className="flex flex-col justify-between gap-y-2 text-center">
-            <p>Followers</p>
-            <p className="font-bold text-lg">8</p>
-          </div>
-          <div className="flex flex-col justify-between gap-y-2 text-center">
-            <p>Following</p>
-            <p className="font-bold text-lg">8</p>
-          </div>
+          <StatEntry title='Repos' value={8} />
+          <StatEntry title='Followers' value={8} />
+          <StatEntry title='Following' value={8} />
         </div>
 
         {/* Fields */}
