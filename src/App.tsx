@@ -29,7 +29,7 @@ function App() {
     followers: 2,
     following: 7,
     isDefault: true,
-    bio: null,
+    bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit delectus voluptatibus error quidem enim! Officia atque vero repellat nulla recusandae rem! Modi mollitia minus placeat quod minima fugit itaque voluptatem!',
     blog: null,
   });
   const [search, setSearch] = useState('');
@@ -135,7 +135,9 @@ function App() {
                   <p className="leading-8">
                     {userData.bio
                       ? userData.bio 
-                      : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit delectus voluptatibus error quidem enim! Officia atque vero repellat nulla recusandae rem! Modi mollitia minus placeat quod minima fugit itaque voluptatem!'}
+                      : <span className="opacity-60">
+                          This profile has no bio.
+                        </span>}
                   </p>
 
                   {/* Profile stats */}
