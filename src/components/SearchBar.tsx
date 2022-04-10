@@ -9,7 +9,7 @@ interface Props {
 
 export const SearchBar:React.FC<Props> = props => {
   return (
-    <div className="relative flex justify-between px-2 py-2 bg-card-dark rounded-2xl shadow-2xl md:text-lg">
+    <div className="relative flex justify-between px-2 py-2  rounded-2xl shadow-2xl md:text-lg dark:bg-card-dark dark:text-light">
       <label htmlFor="searchInput" className="absolute inset-y-0 left-0 flex items-center pl-3 md:pl-4">
         <IoSearch className="text-blue-500 text-2xl md:text-4xl"/>
       </label>
@@ -19,7 +19,6 @@ export const SearchBar:React.FC<Props> = props => {
         id="searchInput"
         value={props.value}
         onChange={props.onInputChange}
-        // onKeyDown={props.action}
         className="pl-9 flex-1 bg-transparent appearance-none outline-none truncate md:pl-14"
       />
       <button 

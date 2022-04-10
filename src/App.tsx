@@ -68,7 +68,7 @@ function App() {
   }
 
   return (
-    <main className="min-h-screen flex justify-center bg-light transition text-sm text-dark font-mono lg:text-base dark:bg-dark dark:text-light">
+    <main className="min-h-screen flex justify-center bg-light  text-sm text-dark font-mono transition lg:text-base dark:bg-dark dark:text-light">
       <div className="min-h-screen min-w-full flex flex-col gap-y-6 p-6 md:justify-center sm:container sm:min-w-0 lg:max-w-screen-lg">
         {/* Header */}
         <div className="flex justify-between items-center px-2 hover:cursor-pointer">
@@ -92,10 +92,11 @@ function App() {
         {/* Search bar */}
         <SearchBar value={search} onInputChange={handleSearchChange} action={handleSearchAction} />
 
-        <div className="flex bg-card-dark p-5 rounded-2xl shadow-2xl lg:p-8">
+        {/* Main card */}
+        <div className="flex bg-card-light p-5 rounded-2xl shadow-2xl lg:p-8 dark:bg-card-dark">
           {!isNotFound
             ? 
-              /* Main card */
+              /* Main card content */
               <div className="flex flex-1 gap-x-12 ">
                 {/* Profile picture for lg screen */}
                   <img 
@@ -138,13 +139,14 @@ function App() {
                   </p>
 
                   {/* Profile stats */}
-                  <div className="grid grid-cols-3 justify-between py-4 bg-dark rounded-xl md:px-8">
+                  <div className="grid grid-cols-3 justify-between py-4 bg-light rounded-xl md:px-8 dark:bg-dark">
                     <StatEntry title='Repos' value={userData.public_repos} />
                     <StatEntry title='Followers' value={userData.followers} />
                     <StatEntry title='Following' value={userData.following} />
                   </div>
 
                   {/* Fields */}
+                  {/* Might wanna refactor these empty check later on */}
                   <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
                     <FieldEntry icon={<IoLocation />} value={userData.location ? userData.location : 'Not available'} />
                     <FieldEntry icon={<IoLink />} 

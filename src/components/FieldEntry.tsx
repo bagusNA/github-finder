@@ -10,11 +10,13 @@ export const FieldEntry:React.FC<EntryProps> = props => {
   return (
     <div className="flex items-center gap-x-3">
       <span className="text-3xl">{props.icon}</span>
-
-      { props.href
-        ? <a href={props.href} className="truncate">{props.value}</a>
-        : <p className="truncate">{props.value}</p>
-      }
+      {/* Might wanna refactor this n/a check later on */}
+      <span className={`truncate ${props.value === 'Not available' ? 'opacity-60' : ''}`}>
+        { props.href
+          ? <a href={props.href}>{props.value}</a>
+          : <p>{props.value}</p>
+        }
+      </span>
     </div>
   )
 }
