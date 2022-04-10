@@ -5,7 +5,7 @@ import Moment from 'react-moment';
 import { SearchBar } from './components/SearchBar';
 import { StatEntry } from './components/StatEntry';
 import { FieldEntry } from "./components/FieldEntry";
-import defaultProfile from './assets/img/profile.jpg';
+import defaultProfile from './assets/img/profile.gif';
 import { unstable_batchedUpdates } from "react-dom";
 
 const settings = {
@@ -18,7 +18,6 @@ function App() {
     name: 'Patrick Star',
     login: 'patrick',
     html_url: 'https://github.com/users/bagusNA',
-    // avatar_url: 'https://avatars.githubusercontent.com/u/84782823?v=4',
     avatar_url: defaultProfile,
     createdAt: '2021-05-25T12:38:17Z',
     email: 'patrickstar@mail.com',
@@ -29,7 +28,14 @@ function App() {
     followers: 2,
     following: 7,
     isDefault: true,
-    bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit delectus voluptatibus error quidem enim! Officia atque vero repellat nulla recusandae rem! Modi mollitia minus placeat quod minima fugit itaque voluptatem!',
+    bio: `Fly me to the moon
+      Let me play among the stars
+      Let me see what spring is like
+      On a-Jupiter and Mars
+      
+      In other words: hold my hand
+      In other words: baby, kiss me
+    `,
     blog: null,
   });
   const [search, setSearch] = useState('');
@@ -72,7 +78,7 @@ function App() {
       <div className="min-h-screen min-w-full flex flex-col gap-y-6 p-6 md:justify-center sm:container sm:min-w-0 lg:max-w-screen-lg">
         {/* Header */}
         <div className="flex justify-between items-center px-2 hover:cursor-pointer">
-          <h1 className="text-xl font-bold md:text-2xl">GitHub-finder</h1>
+          <a href="/"><h1 className="text-xl font-bold md:text-2xl">GitHub-finder</h1></a>
           <div className="flex items-center gap-x-2" onClick={toggleTheme}>
             {!isDarkMode ?
               <React.Fragment>
@@ -114,6 +120,7 @@ function App() {
                       <img src={userData.avatar_url} 
                         alt="Default profile" 
                         width={settings.pictureWidth} 
+                        height={settings.pictureWidth} 
                         className="rounded-full" 
                       />
                     </div>
@@ -132,7 +139,7 @@ function App() {
                   </div>
 
                     {/* Description */}
-                  <p className="leading-8">
+                  <p className="leading-8 whitespace-pre-line">
                     {userData.bio
                       ? userData.bio 
                       : <span className="opacity-60">
