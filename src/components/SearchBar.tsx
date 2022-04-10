@@ -22,7 +22,7 @@ export const SearchBar:React.FC<Props> = props => {
         className="pl-9 flex-1 bg-transparent appearance-none outline-none truncate md:pl-14"
       />
       <button 
-        className="bg-blue-600 px-4 py-3 font-bold rounded-lg transition shadow-xl hover:bg-blue-500"
+        className="bg-blue-600 text-light px-4 py-3 font-bold rounded-lg transition shadow-xl hover:bg-blue-500"
         onClick={props.action}
       >
         Search
