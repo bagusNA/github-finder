@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IoSunnyOutline, IoLocation, IoLink, IoMail, IoBusiness, IoLogoTwitter } from 'react-icons/io5';
+import { IoSunnyOutline, IoLocation, IoLink, IoSunny, IoBusiness, IoLogoTwitter } from 'react-icons/io5';
 import Moment from 'react-moment';
 
 import { SearchBar } from './components/SearchBar';
@@ -34,6 +34,15 @@ function App() {
   });
   const [search, setSearch] = useState('');
   const [isNotFound, setIsNotFound] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    if (isDarkMode && document.documentElement.classList.contains('dark')) return;
+    if (isDarkMode) return document.documentElement.classList.add('dark');
+
+    if (!isDarkMode && !document.documentElement.classList.contains('dark')) return;
+    document.documentElement.classList.remove('dark');
+  })
 
   function handleSearchChange(e: any) {
     setSearch(e.target.value);
@@ -54,15 +63,29 @@ function App() {
       .then(res => res.json())
   }
 
+  function toggleTheme() {
+    setIsDarkMode(prev => !prev);
+  }
+
   return (
-    <main className="min-h-screen flex justify-center bg-dark text-sm text-light font-mono lg:text-base">
+    <main className="min-h-screen flex justify-center bg-light transition text-sm text-dark font-mono lg:text-base dark:bg-dark dark:text-light">
       <div className="min-h-screen min-w-full flex flex-col gap-y-6 p-6 md:justify-center sm:container sm:min-w-0 lg:max-w-screen-lg">
         {/* Header */}
-        <div className="flex justify-between items-center pb-2">
+        <div className="flex justify-between items-center px-2 hover:cursor-pointer">
           <h1 className="text-xl font-bold md:text-2xl">GitHub-finder</h1>
-          <div className="flex items-center gap-x-2">
-            <p className="tracking-widest text-sm">LIGHT</p>
-            <IoSunnyOutline className="text-2xl"/>
+          <div className="flex items-center gap-x-2" onClick={toggleTheme}>
+            {!isDarkMode ?
+              <React.Fragment>
+                <p className="tracking-widest text-sm">LIGHT</p>
+                <IoSunny className="text-2xl"/>
+              </React.Fragment>
+              :
+              <React.Fragment>
+                <p className="tracking-widest text-sm">DARK</p>
+                <IoSunnyOutline className="text-2xl"/>
+              </React.Fragment>
+            }
+            
           </div>
         </div>
 
@@ -144,8 +167,6 @@ function App() {
               </div>
           }
         </div>
-
-        
       </div>
     </main>
   );
