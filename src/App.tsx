@@ -106,7 +106,7 @@ function App() {
                     height={settings.lgPictureWidth}
                     className="rounded-full hidden self-start lg:block"
                   />
-                <div className="flex flex-col gap-y-6">
+                <div className="flex-1 flex flex-col gap-y-6">
                   {/* Main info */}
                   <div className="flex gap-x-6 lg:gap-none">
                     {/* Profile picture for mobile screen */}
