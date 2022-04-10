@@ -56,7 +56,7 @@ function App() {
 
   return (
     <main className="min-h-screen flex justify-center bg-dark text-sm text-light font-mono lg:text-base">
-      <div className="min-h-screen min-w-full flex flex-col gap-y-6 p-6 md:justify-center sm:container sm:min-w-fit lg:max-w-screen-lg">
+      <div className="min-h-screen min-w-full flex flex-col gap-y-6 p-6 md:justify-center sm:container sm:min-w-0 lg:max-w-screen-lg">
         {/* Header */}
         <div className="flex justify-between items-center pb-2">
           <h1 className="text-xl font-bold md:text-2xl">GitHub-finder</h1>
@@ -84,12 +84,15 @@ function App() {
                   />
                 <div className="flex flex-col gap-y-6">
                   {/* Main info */}
-                  <div className="flex gap-x-6">
-                    <img src={userData.avatar_url} 
-                      alt="Default profile" 
-                      width={settings.pictureWidth} 
-                      className="rounded-full lg:hidden" 
-                    />
+                  <div className="flex gap-x-6 lg:gap-none">
+                    {/* Profile picture for mobile screen */}
+                    <div className="min-w-fit flex items-center lg:hidden">
+                      <img src={userData.avatar_url} 
+                        alt="Default profile" 
+                        width={settings.pictureWidth} 
+                        className="rounded-full" 
+                      />
+                    </div>
                     <div className="flex flex-col justify-center gap-y-1 lg:flex-row lg:justify-between lg:w-full">
                       <div className="flex flex-col justify-center gap-y-1">
                         <h2 className="font-bold text-xl">{userData.name}</h2>
