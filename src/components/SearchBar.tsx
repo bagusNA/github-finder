@@ -5,7 +5,13 @@ interface Props {
   value: string,
   action: any,
   onInputChange: any
-}  
+}
+
+function onEnter(event: React.KeyboardEvent<HTMLDivElement>, callback: any) {
+  if (event.key === "Enter") {
+    callback();
+  }
+}
 
 export const SearchBar:React.FC<Props> = props => {
   return (
@@ -19,6 +25,7 @@ export const SearchBar:React.FC<Props> = props => {
         id="searchInput"
         value={props.value}
         onChange={props.onInputChange}
+        onKeyDown={e => onEnter(e, props.action)}
         className="pl-9 flex-1 bg-transparent appearance-none outline-none truncate md:pl-14"
       />
       <button 
