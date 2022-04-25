@@ -1,6 +1,6 @@
 # GitHub Profile Finder
 
-GitHub profile finder built using ReactJS. Intended as a simple beginner project for learning React.
+GitHub profile finder built using ReactJS and TailwindCSS. Design is based from FrontEndMentor. This project is intended as a simple beginner project and a way for me to learn react.
 
 * Desktop view
 
