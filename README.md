@@ -1,22 +1,15 @@
-# cra-template-tailwindcss-typescript
+# GitHub Profile Finder
 
-A streamlined [Tailwind CSS v3.x](https://tailwindcss.com) template for [Create React App](https://github.com/facebook/create-react-app) in [TypeScript](https://www.typescriptlang.org/).
+GitHub profile finder built using ReactJS. Intended as a simple beginner project for learning React.
 
-> This template installs and sets up [Tailwind CSS](https://tailwindcss.com) with TypeScript support.
+* Desktop view
 
-## Usage
+![Desktop View](https://user-images.githubusercontent.com/84782823/165032696-cf7fed24-4b5e-4d7b-864b-33d0400e0b1d.png)
 
-```bash
-npx create-react-app --template tailwindcss-typescript
-```
+* Mobile view
 
-## Credits
+![Mobile View](https://user-images.githubusercontent.com/84782823/165032697-a7ae6a68-9cad-49db-aab3-5eccea0584c9.png)
 
-This project was made possible thanks to the following projects.
+* The unholy light theme
 
-1. [GeoffSelby/cra-template-tailwindcss](https://github.com/GeoffSelby/cra-template-tailwindcss) - A streamlined Tailwind CSS template for Create React App (in JavaScript).
-2. [cra-template-typescript](https://github.com/facebook/create-react-app/tree/master/packages/cra-template-typescript) - An official TypeScript template for create-react-app.
-
-## License
-
-MIT © [Sung M. Kim](https://sung.codes)
+![Light theme](https://user-images.githubusercontent.com/84782823/165033105-ed9733df-0207-42e7-8c23-232b198769ed.png)
