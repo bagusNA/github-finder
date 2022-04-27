@@ -23,10 +23,11 @@ function App() {
   async function handleSearchAction() {
     setIsLoading(true);
     let data = await getUserData(search);
+    setIsLoading(false);
+
     if (data.message === 'Not Found') return setIsNotFound(true);
 
     unstable_batchedUpdates(() => {
-      setIsLoading(false);
       setIsNotFound(false);
       setUserData(data);
     });
@@ -48,7 +49,7 @@ function App() {
     if (!isDarkMode && !document.documentElement.classList.contains('dark')) return;
     document.documentElement.classList.remove('dark');
   })
-
+  
   if (isLoading) {
     mainCard = <SkeletonCard />;
   }
