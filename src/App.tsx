@@ -6,12 +6,14 @@ import { defaultData } from './options';
 import { SearchBar } from './components/SearchBar';
 import ProfileCard from "./components/cards/ProfileCard";
 import NotFoundCard from "./components/cards/NotFoundCard";
+import SkeletonCard from "./components/cards/SkeletonCard";
 
 function App() {
   const [userData, setUserData] = useState(defaultData);
   const [search, setSearch] = useState('');
   const [isNotFound, setIsNotFound] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   let mainCard;
 
   function handleSearchChange(e: any) {
@@ -19,10 +21,12 @@ function App() {
   }
 
   async function handleSearchAction() {
+    setIsLoading(true);
     let data = await getUserData(search);
     if (data.message === 'Not Found') return setIsNotFound(true);
 
     unstable_batchedUpdates(() => {
+      setIsLoading(false);
       setIsNotFound(false);
       setUserData(data);
     });
@@ -45,7 +49,10 @@ function App() {
     document.documentElement.classList.remove('dark');
   })
 
-  if (isNotFound) {
+  if (isLoading) {
+    mainCard = <SkeletonCard />;
+  }
+  else if (isNotFound) {
     mainCard = <NotFoundCard />;
   }
   else {
