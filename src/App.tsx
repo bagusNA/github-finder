@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IoSunnyOutline, IoSunny } from 'react-icons/io5';
+import { IoMoon, IoSunny } from 'react-icons/io5';
 import { unstable_batchedUpdates } from "react-dom";
 
 import { defaultData } from './options';
@@ -65,7 +65,7 @@ function App() {
         {/* Header */}
         <div className="flex justify-between items-center px-2 hover:cursor-pointer">
           <a href="/"><h1 className="text-xl font-bold md:text-2xl">GitHub-finder</h1></a>
-          <div className="flex items-center gap-x-2" onClick={toggleTheme}>
+          <div className="flex items-center gap-x-2 opacity-80 select-none transition hover:opacity-100 hover:cursor-pointer" onClick={toggleTheme}>
             {!isDarkMode ?
               <React.Fragment>
                 <p className="tracking-widest text-sm">LIGHT</p>
@@ -74,7 +74,7 @@ function App() {
               :
               <React.Fragment>
                 <p className="tracking-widest text-sm">DARK</p>
-                <IoSunnyOutline className="text-2xl"/>
+                <IoMoon className="text-2xl"/>
               </React.Fragment>
             }
           </div>
