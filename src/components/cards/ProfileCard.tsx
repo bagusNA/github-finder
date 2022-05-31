@@ -75,9 +75,9 @@ const ProfileCard:React.FC<Props> = ({userData = defaultData}) => {
 
           {/* Profile stats */}
           <div className="grid grid-cols-3 justify-between py-4 bg-light rounded-xl md:px-8 dark:bg-dark">
-            <StatEntry title='Repos' value={userData.public_repos} />
-            <StatEntry title='Followers' value={userData.followers} />
-            <StatEntry title='Following' value={userData.following} />
+            <StatEntry title='Repos' value={userData.public_repos} link={userData.html_url + "?tab=repositories"} />
+            <StatEntry title='Followers' value={userData.followers} link={userData.html_url + "?tab=followers"} />
+            <StatEntry title='Following' value={userData.following} link={userData.html_url + "?tab=following"} />
           </div>
 
           {/* Fields */}

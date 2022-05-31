@@ -8,7 +8,7 @@ const settings = {
 const defaultData = {
   name: 'Patrick Star',
   login: 'patrick',
-  html_url: 'https://github.com/users/bagusNA',
+  html_url: 'https://github.com/bagusNA',
   avatar_url: defaultProfile,
   created_at: '2021-05-25T12:38:17Z',
   email: 'patrickstar@mail.com',
