@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { IoMoon, IoSunny } from 'react-icons/io5';
 import { unstable_batchedUpdates } from "react-dom";
 
@@ -42,13 +42,13 @@ function App() {
     setIsDarkMode(prev => !prev);
   }
 
-  useEffect(() => {
-    if (isDarkMode && document.documentElement.classList.contains('dark')) return;
-    if (isDarkMode) return document.documentElement.classList.add('dark');
-
-    if (!isDarkMode && !document.documentElement.classList.contains('dark')) return;
+  // Dark mode toggle
+  if (isDarkMode && !document.documentElement.classList.contains('dark')) {
+    document.documentElement.classList.add('dark');
+  }
+  else if (!isDarkMode && document.documentElement.classList.contains('dark')) {
     document.documentElement.classList.remove('dark');
-  })
+  }
   
   if (isLoading) {
     mainCard = <SkeletonCard />;
@@ -57,7 +57,7 @@ function App() {
     mainCard = <NotFoundCard />;
   }
   else {
-    mainCard = <ProfileCard userData={userData}/>;
+    mainCard = <ProfileCard userData={userData} />;
   }
 
   return (
