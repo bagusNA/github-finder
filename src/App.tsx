@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { IoMoon, IoSunny } from 'react-icons/io5';
 import { unstable_batchedUpdates } from "react-dom";
 
+import { getUserData } from "./api/user";
 import { defaultData } from './options';
 import { SearchBar } from './components/SearchBar';
 import ProfileCard from "./components/cards/ProfileCard";
@@ -31,11 +32,6 @@ function App() {
       setIsNotFound(false);
       setUserData(data);
     });
-  }
-
-  function getUserData(username: string) {
-    return fetch('https://api.github.com/users/' + username)
-      .then(res => res.json())
   }
 
   function toggleTheme() {
