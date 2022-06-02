@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import { IoMoon, IoSunny } from 'react-icons/io5';
 import { unstable_batchedUpdates } from "react-dom";
 
-import { getUserData } from "./api/user";
+import { getUserData, searchUser } from "./api/user";
 import { defaultData } from './options';
+import { User } from "./types/User";
+
 import { SearchBar } from './components/SearchBar';
 import ProfileCard from "./components/cards/ProfileCard";
 import NotFoundCard from "./components/cards/NotFoundCard";
 import SkeletonCard from "./components/cards/SkeletonCard";
+import SearchCard from "./components/cards/SearchCard";
 
 function App() {
   const [userData, setUserData] = useState(defaultData);
   const [search, setSearch] = useState('');
+  const [searchResult, setSearchResult] = useState<User[]>([]);
   const [isNotFound, setIsNotFound] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -23,14 +27,14 @@ function App() {
 
   async function handleSearchAction() {
     setIsLoading(true);
-    let data = await getUserData(search);
+    let data = await searchUser(search);
     setIsLoading(false);
 
-    if (data.message === 'Not Found') return setIsNotFound(true);
+    if (data === []) return setIsNotFound(true);
 
     unstable_batchedUpdates(() => {
       setIsNotFound(false);
-      setUserData(data);
+      setSearchResult(data);
     });
   }
 
@@ -53,7 +57,15 @@ function App() {
     mainCard = <NotFoundCard />;
   }
   else {
-    mainCard = <ProfileCard userData={userData} />;
+    let resultCards = searchResult.map(user => {
+      return <SearchCard user={user} onClick={() => console.log(user)} key={user.id} />;
+    });
+
+    mainCard = (
+      <div className="grid grid-cols-2 gap-6 lg:gap-8">
+        {resultCards}
+      </div>
+    );
   }
 
   return (
