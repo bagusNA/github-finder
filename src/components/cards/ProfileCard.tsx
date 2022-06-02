@@ -2,28 +2,13 @@ import React from 'react';
 import Moment from 'react-moment';
 import { IoLocation, IoLink, IoBusiness, IoLogoTwitter } from 'react-icons/io5';
 
+import { User } from '../../types/User';
 import { StatEntry } from '../StatEntry';
 import { FieldEntry } from '../FieldEntry';
 import { settings, defaultData } from '../../options';
 
 interface Props {
-  userData : {
-    name: any,
-    login: string,
-    html_url: string,
-    avatar_url: string,
-    created_at: string,
-    email: string,
-    company: any,
-    location: any,
-    public_repos: number,
-    followers: number,
-    following: number,
-    isDefault: boolean,
-    bio: any,
-    twitter_username: any,
-    blog: any,
-  }
+  userData : User
 }
 
 const ProfileCard:React.FC<Props> = ({userData = defaultData}) => {

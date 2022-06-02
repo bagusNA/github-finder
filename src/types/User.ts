@@ -1,0 +1,17 @@
+export interface User {
+  name: any,
+  login: string,
+  html_url: string,
+  avatar_url: string,
+  created_at: string,
+  email: string,
+  company: any,
+  location: any,
+  public_repos: number,
+  followers: number,
+  following: number,
+  isDefault: boolean,
+  bio: any,
+  twitter_username: any,
+  blog: any,
+}
