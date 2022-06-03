@@ -13,7 +13,7 @@ import SkeletonCard from "./components/cards/SkeletonCard";
 import SearchCard from "./components/cards/SearchCard";
 
 function App() {
-  const [userData, setUserData] = useState(defaultData);
+  const [userData, setUserData] = useState<User | null>(defaultData);
   const [search, setSearch] = useState('');
   const [searchResult, setSearchResult] = useState<User[]>([]);
   const [isNotFound, setIsNotFound] = useState(false);
@@ -35,6 +35,20 @@ function App() {
     unstable_batchedUpdates(() => {
       setIsNotFound(false);
       setSearchResult(data);
+      setUserData(null);
+    });
+  }
+
+  async function handleCardClick(userLogin: string) {
+    setIsLoading(true);
+    let data = await getUserData(userLogin);
+    setIsLoading(false);
+
+    if (data.message === 'Not Found') return setIsNotFound(true);
+
+    unstable_batchedUpdates(() => {
+      setIsNotFound(false);
+      setUserData(data);
     });
   }
 
@@ -56,9 +70,12 @@ function App() {
   else if (isNotFound) {
     mainCard = <NotFoundCard />;
   }
+  else if (userData) {
+    mainCard = <ProfileCard userData={userData} />
+  }
   else {
     let resultCards = searchResult.map(user => {
-      return <SearchCard user={user} onClick={() => console.log(user)} key={user.id} />;
+      return <SearchCard user={user} onClick={() => handleCardClick(user.login)} key={user.id} />;
     });
 
     mainCard = (

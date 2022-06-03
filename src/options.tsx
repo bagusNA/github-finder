@@ -6,6 +6,7 @@ const settings = {
 }
 
 const defaultData = {
+  id: 84782823,
   name: 'Patrick Star',
   login: 'patrick',
   html_url: 'https://github.com/bagusNA',
