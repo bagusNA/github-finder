@@ -52,10 +52,6 @@ function App() {
     });
   }
 
-  function toggleTheme() {
-    setIsDarkMode(prev => !prev);
-  }
-
   // Dark mode toggle
   if (isDarkMode && !document.documentElement.classList.contains('dark')) {
     document.documentElement.classList.add('dark');
@@ -91,7 +87,7 @@ function App() {
         {/* Header */}
         <div className="flex justify-between items-center px-2 hover:cursor-pointer">
           <a href="/"><h1 className="text-xl font-bold md:text-2xl">GitHub-finder</h1></a>
-          <div className="flex items-center gap-x-2 opacity-80 select-none transition hover:opacity-100 hover:cursor-pointer" onClick={toggleTheme}>
+          <div className="flex items-center gap-x-2 opacity-80 select-none transition hover:opacity-100 hover:cursor-pointer" onClick={() => setIsDarkMode(prev => !prev)}>
             {!isDarkMode ?
               <React.Fragment>
                 <p className="tracking-widest text-sm">LIGHT</p>
